@@ -15,3 +15,14 @@ def most(n, shop):
         WTNF = sum
     print (WTNF)
 most(13, shop)
+
+
+def trees(n, h):
+    curr_inc = 1
+    curr_dec = 1
+    best_ince = 0
+    best_dec = 0
+    for i in range(n-1):
+        if h[i] > h[i+1]:
+            curr_dec += 1
+            if curr_dec > best_dec

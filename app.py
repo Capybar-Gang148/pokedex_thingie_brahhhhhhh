@@ -13,9 +13,8 @@ def uno_nombre():
 
 # Add a language choice feature and print the pokemons name based on the user input
     language = input("What language would you like to use?").lower()
-    for pokemon in data:
-        print(data[pokemon]['name'][language])
-     
+    for dorta, pokemon in (data):
+        print(pokemon['name'][language])
 uno_nombre()
 
 
