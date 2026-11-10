@@ -12,14 +12,19 @@ def uno_nombre():
    
 
 # Add a language choice feature and print the pokemons name based on the user input
-    language = input("What language would you like to use?").lower()
-    for dorta, pokemon in (data):
+    
+    for pokemon in data:
         print(pokemon['name'][language])
+language = input("What language would you like to use?").lower()
 uno_nombre()
 
-
 # Develop a function that creates a new list of pokemon based on the type the user searched for. If no pokemon was found of that type inform the user
-
+def search():
+    searcher = input("Search for type:")
+    for pokemon in data:
+        if searcher == pokemon["type"]:
+            name = pokemon["name"][f"{language()}"]
+search()
 #Develop a function to find all pokemon matching the name the user searched for. Ex. if "Char" return Charmander, Charmeleon and Charizard. Make the user aware if no pokemon was found. 
 
 
