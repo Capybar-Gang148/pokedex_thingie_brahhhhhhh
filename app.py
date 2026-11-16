@@ -1,8 +1,10 @@
 import json
 ## Open the JSON file of pokemon data
 pokedex = open("./pokedex.json", encoding="utf8")
+mooving = open("./moves.json", encoding="utf8")
 ## create variable "data" that represents the enitre pokedex list
 data = json.load(pokedex)
+daata = json.load(mooving)
 
 
 # Create a function that will take the data from the JSON file and you will iterate through the list of pokemon and print each pokemons name.
@@ -18,15 +20,35 @@ def uno_nombre():
 language = input("What language would you like to use?").lower()
 uno_nombre()
 # Develop a function that creates a new list of pokemon based on the type the user searched for. If no pokemon was found of that type inform the user
-def search():
-    searcher = input("Search for type:")
+def search_type():
+    searcher = input("Search for type:").lower().capitalize()
     for pokemon in data: 
         if searcher in pokemon["type"]:
             name = pokemon["name"][f"{language.lower()}"]
             print (name)
-search()
+search_type()
         
 #Develop a function to find all pokemon matching the name the user searched for. Ex. if "Char" return Charmander, Charmeleon and Charizard. Make the user aware if no pokemon was found. 
-
+def search_poke():
+    poke = input("Search for name:").lower().capitalize()
+    for pokemon in data:
+        if poke in pokemon["name"]["english"]:
+            numero = pokemon["name"][f"{language.lower()}"]
+            print(numero)
+search_poke()
 
 #Based on user input, show all moves that a pokemon could learn based on their type. For example, if Charizard is fire/fyling, show all fire and flying moves. HINT import the moves.json file too!
+def search_moves():
+    moves = input("Search for moves:").lower().capitalize()
+    for pokemon in data:
+        if moves == pokemon["name"]["english"]:
+            store = pokemon["type"]
+            for maves in daata:
+                if maves["type"] in store:
+                    stare = maves["ename"]
+                    print(stare)
+search_moves()
+
+
+
+        
